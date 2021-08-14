@@ -98,5 +98,6 @@ class TestSimpleDataTypes(TestCase):
         self.assertTrue('60' in output)
         self.assertTrue('139.6' in output)
 
+
 if __name__ == '__main__':
     unittest.main()
