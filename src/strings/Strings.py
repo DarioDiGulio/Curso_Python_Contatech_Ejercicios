@@ -8,9 +8,9 @@ class Strings:
         un número entero e imprima por pantalla en líneas distintas el nombre
         del usuario tantas veces como el número introducido.
         """
-        user_name = self.io.input("¿Cuál es tu nombre? ")
-        count = self.io.input("Ingresá un número entero: ")
-        self.io.output(f'{user_name}\n' * int(count))
+        name = self.io.input("¿Cómo te llamas?")
+        number = self.io.input("Introduce un número entero: ", int)
+        self.io.output(f'{name}\n' * int(number))
 
     def exercise_two(self):
         """
@@ -19,7 +19,10 @@ class Strings:
         letras mayúsculas y otra solo con la primera letra del nombre y de los apellidos en mayúscula.
         El usuario puede introducir su nombre combinando mayúsculas y minúsculas como quiera.
         """
-        pass
+        full_name: str = self.io.input("Cuál es tu nombre completo?")
+        self.io.output(full_name.lower())
+        self.io.output(full_name.upper())
+        self.io.output(full_name.title())
 
     def exercise_tree(self):
         """
@@ -27,7 +30,8 @@ class Strings:
         lo introduzca muestre por pantalla <NOMBRE> tiene <n> letras, donde <NOMBRE> es el nombre de usuario
         en mayúsculas y <n> es el número de letras que tienen el nombre.
         """
-        pass
+        full_name: str = self.io.input("Cuál es tu nombre completo?")
+        self.io.output(f'{full_name.upper()} tiene {len(full_name)} letras.')
 
     def exercise_four(self):
         """
@@ -36,35 +40,41 @@ class Strings:
         Escribir un programa que pregunte por un número de teléfono con este formato y muestre por pantalla
         el número de teléfono sin el prefijo y la extensión.
         """
-        pass
+        full_phone_number: str = self.io.input("Ingresá tu número de celular completo: ")
+        self.io.output(full_phone_number.split("-")[1])
 
     def exercise_five(self):
         """
         Escribir un programa que pida al usuario que introduzca una frase
         en la consola y muestre por pantalla la frase invertida.
         """
-        pass
+        sentence: str = self.io.input("Ingresá la frase que más te guste por favor: ")
+        self.io.output(sentence[::-1])
 
     def exercise_six(self):
         """
         Escribir un programa que pida al usuario que introduzca una frase en la consola y una vocal
         y después muestre por pantalla la misma frase pero con la vocal introducida en mayúscula.
         """
-        pass
+        sentence: str = self.io.input("Ingresá la frase que más te guste por favor: ")
+        vocal: str = self.io.input("Ahora ingresá una vocal: ")
+        self.io.output(sentence.replace(vocal, vocal.upper()))
 
     def exercise_seven(self):
         """
         Escribir un programa que pregunte el correo electrónico del usuario en la consola y muestre por pantalla
         otro correo electrónico con el mismo nombre (la parte delante de la arroba @) pero con dominio ceu.es.
         """
-        pass
+        email: str = self.io.input("Introduce tu correo electrónico: ")
+        self.io.output(email[:email.find('@')] + '@ceu.es')
 
     def exercise_eight(self):
         """
         Escribir un programa que pregunte por consola el precio de un producto en pesos con dos decimales
         y muestre por pantalla el número de pesos y el número de centavos del precio introducido.
         """
-        pass
+        amount: str = self.io.input("Introduce el precio del producto con dos decimales:  ")
+        self.io.output(f'{amount[:amount.find(".")]} pesos y, {amount[amount.find(".") + 1:]} centavos.')
 
     def exercise_nine(self):
         """
@@ -72,4 +82,11 @@ class Strings:
         y muestra por pantalla, el día, el mes y el año. Adaptar el programa anterior para que también funcione
         cuando el día o el mes se introduzcan con un solo carácter.
         """
-        pass
+        date = self.io.input("Introduce la fecha de tu nacimiento en formato día/mes/año: ")
+        day = date[:date.find('/')]
+        year_month = date[date.find('/') + 1:]
+        month = year_month[:year_month.find('/')]
+        year = year_month[year_month.find('/') + 1:]
+        self.io.output(f'Día {day}')
+        self.io.output(f'Mes {month}')
+        self.io.output(f'Año {year}')

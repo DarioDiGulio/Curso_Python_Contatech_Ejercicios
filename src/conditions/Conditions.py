@@ -7,8 +7,7 @@ class Conditions:
         Escribir un programa que pregunte al usuario su edad y muestre por pantalla si es mayor de edad o no.
         :returns "Sos mayor de edad." / "No sos mayor de edad."
         """
-        user_age = self.io.input("¿Cuál es tu edad?")
-        user_age = int(user_age)
+        user_age = self.io.input("Por favor, ingresá tu edad: ", int)
         if user_age >= 18:
             self.io.output("Sos mayor de edad.")
         else:
@@ -21,7 +20,12 @@ class Conditions:
         coincide con la guardada en la variable sin tener en cuenta mayúsculas y minúsculas.
         :returns "No coincide." / "Coincide."
         """
-        pass
+        key = "contraseña"
+        password = self.io.input("Introduce la contraseña: ")
+        if key == password.lower():
+            self.io.output("Coincide.")
+        else:
+            self.io.output("No coincide.")
 
     def exercise_tree(self):
         """
@@ -31,14 +35,23 @@ class Conditions:
         :return error => "¡Error! No se puede dividir por 0."
         :return success => "El resultado de la división es {resultado}."
         """
-        pass
+        dividend = self.io.input("Introduce el dividendo: ", int)
+        divider = self.io.input("Introduce el divisior: ", int)
+        if divider == 0:
+            self.io.output("¡Error! No se puede dividir por 0.")
+        else:
+            self.io.output(f'El resultado de la división es {dividend // divider}.')
 
     def exercise_four(self):
         """
         Escribir un programa que pida al usuario un número entero y muestre por pantalla si es par o impar.
         :return "El número {number} es par." / "El número {number} es impar."
         """
-        pass
+        number = self.io.input("Introduce un número entero: ", int)
+        if number % 2 == 0:
+            self.io.output(f'El número {number} es par.')
+        else:
+            self.io.output(f'El número {number} es impar.')
 
     def exercise_five(self):
         """
@@ -47,7 +60,12 @@ class Conditions:
         ingresos mensuales y muestre por pantalla si el usuario tiene que tributar o no.
         :return "Tenés que cotizar." / "No tenés que cotizar."
         """
-        pass
+        age = self.io.input("¿Cuál es tu edad? ", int)
+        income = self.io.input("¿Cuales son tus ingresos mensuales?", float)
+        if age > 16 and income >= 1000:
+            self.io.output("Tenés que cotizar.")
+        else:
+            self.io.output("No tenés que cotizar.")
 
     def exercise_six(self):
         """
@@ -58,4 +76,9 @@ class Conditions:
         usuario su nombre y sexo, y muestre por pantalla el grupo que le corresponde.
         :return "Tu grupo es {group}."
         """
-        pass
+        gender = self.io.input("¿Cuál es tu sexo (M o F)?: ")
+        name = self.io.input("¿Cómo te llamas?: ")
+        group = "B"
+        if (gender == "F" and name.lower() < 'm') or (gender == "M" and name.lower() >= 'm'):
+            group = "A"
+        self.io.output(f'Tu grupo es {group}.')
