@@ -1,4 +1,4 @@
-from infrastructure.IO import IO
+from src.infrastructure.IO import IO
 
 
 class SystemIO(IO):
