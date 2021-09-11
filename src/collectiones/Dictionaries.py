@@ -6,15 +6,28 @@ class Dictionaries:
         # Escribir un programa que guarde en una variable el diccionario {'Euro':'€', 'Dollar':'$', 'Yen':'¥'},
         # pregunte al usuario por una divisa y muestre su símbolo o un mensaje de aviso si la divisa
         # no está en el diccionario.
-        pass
+        # :returns "La divisa no está en el diccionario."
+        amounts = {'Euro': '€', 'Dólar': '$', 'Yen': '¥'}
+        amount = self.io.input("Introduce una divisa: ")
+        if amount.title() in amounts:
+            self.io.output(amounts[amount.title()])
+        else:
+            self.io.output("La divisa no está en el diccionario.")
 
     def exercise_two(self):
         """
         Escribir un programa que pregunte al usuario su nombre, edad, dirección y teléfono y lo guarde en un
-        diccionario. Después debe mostrar por pantalla el mensaje <nombre> tiene <edad> años, vive en <dirección>
-        y su número de teléfono es <teléfono>.
+        diccionario. Después debe mostrar por pantalla el mensaje: "<nombre> tiene <edad> años, vive en <dirección>
+        y su número de teléfono es <teléfono>".
         """
-        pass
+        name = self.io.input('¿Cómo te llamas? ')
+        age = self.io.input('¿Cuántos años tienes? ')
+        address = self.io.input('¿Cuál es tu dirección? ')
+        phone = self.io.input('¿Cuál es tu número de teléfono? ')
+        user = {'name': name, 'age': age, 'address': address, 'phone': phone}
+        self.io.output(
+            f'{user["name"]} tiene {user["age"]} años, vive en {user["address"]} y su número de teléfono es {user["phone"]}'
+        )
 
     def exercise_tree(self):
         """
@@ -26,13 +39,24 @@ class Dictionaries:
         Manzana	0.80
         Pera	0.85
         Naranja	0.70
+        :returns '{kg} kilos de {fruta} valen ${frutas[fruta] * kg}' / "Lo siento, la fruta {fruta} no está disponible."
         """
-        pass
+        frutas = {'Plátano': 1.35, 'Manzana': 0.8, 'Pera': 0.85, 'Naranja': 0.7}
+        fruta = self.io.input('¿Qué fruta quieres? ').title()
+        kg = float(self.io.input('¿Cuántos kilos? '))
+        if fruta in frutas:
+            self.io.output(f'{kg} kilos de {fruta} valen ${frutas[fruta] * kg}')
+        else:
+            self.io.output(f"Lo siento, la fruta {fruta} no está disponible.")
 
     def exercise_four(self):
         # Escribir un programa que pregunte una fecha en formato dd/mm/aaaa
-        # y muestre por pantalla la misma fecha en formato dd de <mes> de aaaa donde <mes> es el nombre del mes.
-        pass
+        # y muestre por pantalla la misma fecha en formato "dd de <mes> de aaaa" donde <mes> es el nombre del mes.
+        meses = {1: 'enero', 2: 'febrero', 3: 'marzo', 4: 'abril', 5: 'mayo', 6: 'junio', 7: 'julio', 8: 'agosto',
+                 9: 'septiembre', 10: 'octubre', 11: 'noviembre', 12: 'diciembre'}
+        fecha = self.io.input('Introduce una fecha en formato dd/mm/aaaa: ')
+        fecha = fecha.split('/')
+        self.io.output(f'{fecha[0]} de {meses[int(fecha[1])]} de {fecha[2]}')
 
     def exercise_five(self):
         """
@@ -41,13 +65,25 @@ class Dictionaries:
          en el formato <asignatura> tiene <créditos> créditos, donde <asignatura> es cada una de las asignaturas del
          curso, y <créditos> son sus créditos. Al final debe mostrar también el número total de créditos del curso.
         """
-        pass
+        curso = {'Matemáticas': 6, 'Física': 4, 'Química': 5}
+        total_creditos = 0
+        for asignatura, creditos in curso.items():
+            self.io.output(f'{asignatura} tiene {creditos} créditos')
+            total_creditos += creditos
+        self.io.output(f'Número total de créditos del curso: {total_creditos}')
 
     def exercise_six(self):
         # Escribir un programa que cree un diccionario vacío y lo vaya llenado con información sobre una
         # persona (por ejemplo nombre, edad, sexo, teléfono, correo electrónico, etc.) que se le pida al usuario.
         # Cada vez que se añada un nuevo dato debe imprimirse el contenido del diccionario.
-        pass
+        persona = {}
+        continuar = True
+        while continuar:
+            clave = self.io.input('¿Qué dato quieres introducir? ')
+            valor = self.io.input(clave + ': ')
+            persona[clave] = valor
+            self.io.output(persona)
+            continuar = self.io.input('¿Quieres añadir más información (Si/No)? ') == "Si"
 
     def exercise_seven(self):
         """

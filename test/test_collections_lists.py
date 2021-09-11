@@ -1,7 +1,7 @@
 import unittest
 from parameterized import parameterized
 
-from src.Collections.ListsAndTuples import ListsAndTuples
+from collectiones.ListsAndTuples import ListsAndTuples
 from test.IOStub import IOStub
 
 
