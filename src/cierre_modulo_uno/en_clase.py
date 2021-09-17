@@ -50,8 +50,8 @@ cantidad_ingresos = 0
 cantidad_egresos = 0
 
 
-def es_valido_input(user_input: str, lista_comandos: list) -> bool:
-    return user_input in lista_comandos
+def es_comando_disponible(user_command: str, commands: list) -> bool:
+    return user_command in commands
 
 
 def pedir_cantidad(gaseosa: str) -> int:
@@ -95,7 +95,7 @@ def ingreso() -> None:
     cantidad_ingresos += + 1
     while continuar:
         gaseosa_ingresada = input("Ingresá una gaseosa: ['Lima', 'Cola', 'Naranja', 'Manzana', 'Fin']").lower()
-        if es_valido_input(gaseosa_ingresada, ['lima', 'cola', 'naranja', 'manzana', 'fin']):
+        if es_comando_disponible(gaseosa_ingresada, ['lima', 'cola', 'naranja', 'manzana', 'fin']):
             continuar = procesar_ingreso(gaseosa_ingresada)
         else:
             print("ERROR: ¡No ingresaste una gaseosa válida!")
@@ -129,7 +129,7 @@ def egreso() -> None:
     actualizar_ingresos_totales()
     while continuar:
         gaseosa_ingresada = input("Ingresá una gaseosa: ['Lima', 'Cola', 'Naranja', 'Manzana', 'Fin']").lower()
-        if es_valido_input(gaseosa_ingresada, ['lima', 'cola', 'naranja', 'manzana', 'fin']):
+        if es_comando_disponible(gaseosa_ingresada, ['lima', 'cola', 'naranja', 'manzana', 'fin']):
             continuar = procesar_egreso(gaseosa_ingresada)
         else:
             print("ERROR: ¡No ingresaste una gaseosa válida!")
